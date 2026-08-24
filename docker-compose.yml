@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  opennolan:
+    build: .
+    ports:
+      - "8000:8000"
+      - "5173:5173"
+    volumes:
+      - ./outputs:/app/outputs
+      - ./models:/app/models
+    env_file:
+      - .env
+    deploy:
+      resources:
+        limits:
+          memory: 10g
